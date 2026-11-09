@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ВольтМаркет — електроніка та гаджети</title>
+  <meta name="description" content="Смартфони, ноутбуки, навушники, смарт-годинники та аксесуари з доставкою по Україні.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233b6fd8'/%3E%3Cpath d='M18 4 8 18h7l-2 10 11-15h-7z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="На головну">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M13.5 2 5 14h5.5L9 22l9-12.5h-5.5z" fill="currentColor"/></svg>
+        </span>
+        <span class="logo__text" data-store="name">ВольтМаркет</span>
+      </a>
+
+      <label class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="search" type="search" placeholder="Пошук товарів…" autocomplete="off" aria-label="Пошук товарів">
+      </label>
+
+      <button class="cart-btn" id="cartOpen" aria-label="Відкрити кошик">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2"/><circle cx="10" cy="20.5" r="1.3"/><circle cx="17" cy="20.5" r="1.3"/></svg>
+        <span class="cart-btn__label">Кошик</span>
+        <span class="cart-btn__count" id="cartCount" hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="hero__eyebrow">Офіційна гарантія · Оплата при отриманні</p>
+          <h1>Техніка, яка працює на вас</h1>
+          <p class="hero__lead" data-store="tagline">Гаджети та електроніка з доставкою по Україні</p>
+          <div class="hero__actions">
+            <a href="#catalog" class="btn btn--primary">Перейти до каталогу</a>
+            <a href="#contacts" class="btn btn--ghost">Контакти</a>
+          </div>
+        </div>
+        <ul class="perks">
+          <li><strong>1–2 дні</strong><span>доставка Новою поштою</span></li>
+          <li><strong>14 днів</strong><span>на повернення</span></li>
+          <li><strong id="freeShip">від 3 000 ₴</strong><span>безкоштовна доставка</span></li>
+          <li><strong>12 міс.</strong><span>гарантія на техніку</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <div class="container">
+        <div class="catalog__head">
+          <h2>Каталог</h2>
+          <div class="catalog__tools">
+            <label class="check">
+              <input type="checkbox" id="inStock"> Лише в наявності
+            </label>
+            <select id="sort" aria-label="Сортування">
+              <option value="popular">Спочатку популярні</option>
+              <option value="cheap">Спочатку дешевші</option>
+              <option value="expensive">Спочатку дорожчі</option>
+              <option value="name">За назвою</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="chips" id="categories" role="tablist" aria-label="Категорії"></div>
+
+        <p class="catalog__count" id="resultCount" aria-live="polite"></p>
+        <div class="grid" id="grid"></div>
+        <div class="empty" id="empty" hidden>
+          <p>Нічого не знайдено. Спробуйте змінити пошук або категорію.</p>
+          <button class="btn btn--ghost" id="resetFilters">Скинути фільтри</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="info">
+      <div class="container info__grid">
+        <article>
+          <h3>Доставка</h3>
+          <p>Відправляємо Новою поштою та Укрпоштою щодня до 17:00. Самовивіз з магазину — у день замовлення.</p>
+        </article>
+        <article>
+          <h3>Оплата</h3>
+          <p>Готівкою чи карткою при отриманні, або переказом на рахунок після підтвердження замовлення менеджером.</p>
+        </article>
+        <article>
+          <h3>Гарантія</h3>
+          <p>Уся техніка нова, з офіційною гарантією. Обмін або повернення протягом 14 днів.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container footer__grid">
+      <div>
+        <p class="footer__brand" data-store="name">ВольтМаркет</p>
+        <p class="muted" data-store="tagline"></p>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <ul class="footer__list">
+          <li><a id="phoneLink" href="#"></a></li>
+          <li><a id="emailLink" href="#"></a></li>
+          <li id="tgItem" hidden><a id="tgLink" href="#" target="_blank" rel="noopener">Telegram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Магазин</h4>
+        <ul class="footer__list">
+          <li id="addressText"></li>
+          <li id="hoursText"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom muted">© <span id="year"></span> <span data-store="name">ВольтМаркет</span>. Усі права захищено.</div>
+  </footer>
+
+  <!-- Картка товару -->
+  <dialog class="modal" id="productModal" aria-labelledby="pmTitle">
+    <button class="modal__close" data-close aria-label="Закрити">×</button>
+    <div class="pm" id="productModalBody"></div>
+  </dialog>
+
+  <!-- Кошик -->
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Кошик" aria-hidden="true">
+    <div class="drawer__head">
+      <h2 id="drawerTitle">Кошик</h2>
+      <button class="icon-btn" id="cartClose" aria-label="Закрити кошик">×</button>
+    </div>
+
+    <div class="drawer__body" id="cartView">
+      <ul class="cart-list" id="cartList"></ul>
+      <div class="empty" id="cartEmpty">
+        <p>Кошик порожній</p>
+        <button class="btn btn--ghost" data-go-catalog>До каталогу</button>
+      </div>
+    </div>
+
+    <form class="drawer__body checkout" id="checkoutView" hidden novalidate>
+      <button type="button" class="link-btn" id="backToCart">← Назад до кошика</button>
+      <label>Ім'я та прізвище*
+        <input name="name" required autocomplete="name">
+      </label>
+      <label>Телефон*
+        <input name="phone" type="tel" required autocomplete="tel" placeholder="+380 __ ___ __ __" pattern="[\+0-9 \(\)\-]{10,}">
+      </label>
+      <label>Місто*
+        <input name="city" required autocomplete="address-level2">
+      </label>
+      <fieldset>
+        <legend>Доставка</legend>
+        <label class="radio"><input type="radio" name="delivery" value="Нова пошта" checked> Нова пошта</label>
+        <label class="radio"><input type="radio" name="delivery" value="Укрпошта"> Укрпошта</label>
+        <label class="radio"><input type="radio" name="delivery" value="Самовивіз"> Самовивіз з магазину</label>
+      </fieldset>
+      <label id="branchField">Відділення / адреса*
+        <input name="branch" required placeholder="Напр., відділення №12">
+      </label>
+      <fieldset>
+        <legend>Оплата</legend>
+        <label class="radio"><input type="radio" name="payment" value="При отриманні" checked> При отриманні</label>
+        <label class="radio"><input type="radio" name="payment" value="Переказ на рахунок"> Переказ на рахунок</label>
+      </fieldset>
+      <label>Коментар
+        <textarea name="comment" rows="2"></textarea>
+      </label>
+      <p class="form-error" id="formError" hidden>Будь ласка, заповніть обов'язкові поля.</p>
+    </form>
+
+    <div class="drawer__body done" id="doneView" hidden>
+      <div class="done__icon" aria-hidden="true">✓</div>
+      <h3>Дякуємо за замовлення!</h3>
+      <p>Ми зв'яжемося з вами найближчим часом для підтвердження.</p>
+      <p class="muted small">Якщо поштова програма не відкрилася, скопіюйте замовлення й надішліть його нам:</p>
+      <textarea id="orderText" rows="8" readonly></textarea>
+      <div class="done__actions">
+        <button class="btn btn--ghost" id="copyOrder">Скопіювати</button>
+        <button class="btn btn--primary" data-go-catalog>Продовжити покупки</button>
+      </div>
+    </div>
+
+    <div class="drawer__foot" id="cartFoot" hidden>
+      <div class="totals">
+        <div><span>Товари</span><span id="subtotal">0 ₴</span></div>
+        <div><span>Доставка</span><span id="shipping">за тарифами перевізника</span></div>
+        <div class="totals__sum"><span>Разом</span><span id="total">0 ₴</span></div>
+      </div>
+      <button class="btn btn--primary btn--block" id="checkoutBtn">Оформити замовлення</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
