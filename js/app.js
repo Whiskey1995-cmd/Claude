@@ -43,6 +43,7 @@
     $("#addressText").textContent = `${STORE.city}, ${STORE.address}`;
     $("#hoursText").textContent = STORE.hours;
     $("#year").textContent = new Date().getFullYear();
+    $("#doneEmail").textContent = STORE.email;
   }
 
   /* ---------- Каталог ---------- */
@@ -229,7 +230,7 @@
     $("#cartView").hidden = v !== "cart";
     $("#checkoutView").hidden = v !== "checkout";
     $("#doneView").hidden = v !== "done";
-    $("#drawerTitle").textContent = { cart: "Кошик", checkout: "Оформлення замовлення", done: "Замовлення прийнято" }[v];
+    $("#drawerTitle").textContent = { cart: "Кошик", checkout: "Оформлення замовлення", done: "Замовлення сформовано" }[v];
     $("#checkoutBtn").textContent = v === "checkout" ? "Підтвердити замовлення" : "Оформити замовлення";
     $("#formError").hidden = true;
     renderCart();
